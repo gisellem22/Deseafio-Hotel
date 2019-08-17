@@ -11,6 +11,26 @@ export class HomeComponent implements OnInit {
 
   hotels: HOTEL[];
 
+  initialDate: string;
+  finalDate: string;
+  client:string;
+
+  fromDate(event: any) {
+    this.initialDate = event.target.value;
+    console.log(this.initialDate);
+  }
+  toDate(event: any) {
+    this.finalDate = event.target.value;
+    console.log(this.finalDate);
+  }
+  onChange(event: any){
+    this.client = event.target.value;
+    console.log(this.client);
+  }
+  getResult(){
+    console.log("from: ", this.initialDate,"to: ", this.finalDate, "cliente: ", this.client)
+  }
+
   constructor(public HotelsService: HotelsService) { }
 
   ngOnInit() {
