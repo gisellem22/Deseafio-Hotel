@@ -1,9 +1,19 @@
-<div style="text-align:center">
-  <h1> Welcome to {{ title }}! </h1>
-</div>
-
-<nav>
-  <a routerLink="/home" routerLinkActive="active">HOME</a>
-  <a routerLink="/result" routerLinkActive="active">RESULT</a>
-</nav>
-<router-outlet></router-outlet>
+<header class="container">
+    <nav class="text-center">
+        <a class="navbar-brand" routerLink="/home" routerLinkActive="active">
+          <img src="../assets/image-2.png" alt="Wood Hotel Group" class="img-fluid">
+        </a>
+    </nav>
+  </header>
+  <!-- SPA -->
+  <div class="content">
+      <router-outlet></router-outlet>
+  </div>
+  <!-- Footer -->
+  <footer class="text-center w-100 mt-5 mr-5">
+  <div>
+      <div class="footer-copyright"> © 2019 Copyright: 
+        <a style="color: white" href="https://github.com/gisellem22">WOOD HOTEL GROUP</a>
+        </div>
+  </div>
+  </footer>

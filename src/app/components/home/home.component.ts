@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HOTEL } from 'src/app/models/HOTEL';
+import { ANSWER } from 'src/app/models/answer'
+import { HotelsService } from '../../services/hotels.service'
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  hotels: HOTEL[];
 
-  ngOnInit() {
+  initialDate: string;
+  finalDate: string;
+  client:string;
+
+  fromDate(event: any) {
+    this.initialDate = event.target.value;
+    console.log(this.initialDate);
+  }
+  toDate(event: any) {
+    this.finalDate = event.target.value;
+    console.log(this.finalDate);
+  }
+  onChange(event: any){
+    this.client = event.target.value;
+    console.log(this.client);
+  }
+  getResult(){
+    let answer: ANSWER = new ANSWER (this.initialDate,this.finalDate, this.client);
+    console.log(answer)
+    this.sendAnswer(answer)
   }
 
+  constructor(public HotelsService: HotelsService) { }
+
+  ngOnInit() {
+    this.HotelsService.getHotels().subscribe(hotel => {
+      this.hotels = hotel;
+      console.log(this.hotels);
+    });
+  }
+  sendAnswer(answer:ANSWER){
+    this.HotelsService.getAnswer(answer)
+  }
 }
