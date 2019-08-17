@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HOTEL } from 'src/app/models/HOTEL';
+import { ANSWER } from 'src/app/models/answer'
 import { HotelsService } from '../../services/hotels.service'
 
 @Component({
@@ -28,7 +29,9 @@ export class HomeComponent implements OnInit {
     console.log(this.client);
   }
   getResult(){
-    console.log("from: ", this.initialDate,"to: ", this.finalDate, "cliente: ", this.client)
+    let answer: ANSWER = new ANSWER (this.initialDate,this.finalDate, this.client);
+    console.log(answer)
+    this.sendAnswer(answer)
   }
 
   constructor(public HotelsService: HotelsService) { }
@@ -39,5 +42,7 @@ export class HomeComponent implements OnInit {
       console.log(this.hotels);
     });
   }
-
+  sendAnswer(answer:ANSWER){
+    this.HotelsService.getAnswer(answer)
+  }
 }
