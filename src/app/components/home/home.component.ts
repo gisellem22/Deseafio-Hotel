@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HOTEL } from 'src/app/models/HOTEL';
 import { ANSWER } from 'src/app/models/answer'
 import { HotelsService } from '../../services/hotels.service'
+//import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -32,9 +34,10 @@ export class HomeComponent implements OnInit {
     let answer: ANSWER = new ANSWER (this.initialDate,this.finalDate, this.client);
     console.log(answer)
     this.sendAnswer(answer)
+    //this.router.navigate(['/result']);
   }
 
-  constructor(public HotelsService: HotelsService) { }
+  constructor(public HotelsService: HotelsService /*, private router: Router*/) { }
 
   ngOnInit() {
     this.HotelsService.getHotels().subscribe(hotel => {
