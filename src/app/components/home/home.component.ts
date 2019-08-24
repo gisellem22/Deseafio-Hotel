@@ -13,6 +13,7 @@ import { HotelsService } from '../../services/hotels.service'
 export class HomeComponent implements OnInit {
 
   hotels: HOTEL[];
+  answer: ANSWER;
 
   initialDate: string;
   finalDate: string;
@@ -31,9 +32,9 @@ export class HomeComponent implements OnInit {
     console.log(this.client);
   }
   getResult(){
-    let answer: ANSWER = new ANSWER (this.initialDate,this.finalDate, this.client);
-    console.log(answer)
-    this.sendAnswer(answer)
+    this.answer = new ANSWER (this.initialDate,this.finalDate, this.client);
+    console.log(this.answer)
+    this.sendAnswer(this.answer)
     //this.router.navigate(['/result']);
   }
 

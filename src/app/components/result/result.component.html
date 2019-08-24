@@ -1,9 +1,30 @@
-<p>result works!</p>
-<div>
-        <p>{{from}}</p>
-        <p>{{to}}</p>
-        <p>{{client}}</p>
-        <p>from: {{dateFrom}}</p>
-        <p>to: {{dateTo}}</p>
-
+<div class="container">
+  <div class="row justify-content-center" *ngIf="final">
+    <div class="card col-md-9 mb-3 p-2" style="max-width: 900px;" *ngFor="let hotel of final">
+      <div class="row no-gutters">
+        <div class="col-md-5">
+          <img [src]="hotel.img" class="card-img" style="max-height: 200px" alt="hotel.name">
+        </div>
+        <div class="col-md ml-4">
+          <div class="card-body p-0 ml-3">
+          <h4 class="card-title">{{hotel.name}}  <small class="text-muted ml-2">{{hotel.rating}} estrellas</small></h4>
+        </div>
+          <div class="row mt-5">
+              <div class="col-md-6">
+              <div class="card-body p-0 ml-3">
+                  <p class="card-text">Llegada: {{from}}</p>
+                  <p class="card-text">Cliente: {{client}}</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card-body p-0">
+                    <p class="card-text">Salida: {{to}}</p>
+                    <h4 class="card-text">TOTAL:</h4>
+                    <h4 class="card-text" style="color:#428500">{{hotel.total}}</h4>
+                </div>
+              </div>
+          </div>
+      </div>
     </div>
+  </div>
+</div>

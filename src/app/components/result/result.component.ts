@@ -19,7 +19,9 @@ export class ResultComponent implements OnInit {
   dates: Date[] = [];
   weekDAYS: Date[] = [];
   weekENDS: Date[] = [];
-  result: any;
+  result: [];
+  card: HOTEL = {};
+  final:HOTEL[] = [];
 
   realDate() {
     this.dateFrom = new Date(this.from);
@@ -30,6 +32,7 @@ export class ResultComponent implements OnInit {
   }
 
   getDates(initialD: Date, finalD: Date) {
+    this.dates = [];
     let currentDate: Date = initialD;
     while (currentDate <= finalD) {
       this.dates.push(currentDate);
@@ -45,6 +48,8 @@ export class ResultComponent implements OnInit {
     return date;
   }
   days() {
+    this.weekDAYS = [];
+    this.weekENDS = [];
     this.dates.forEach(element => {
       if (element.getDay() == 6 || element.getDay() == 0) {
         this.weekENDS.push(element);
@@ -58,28 +63,40 @@ export class ResultComponent implements OnInit {
   }
   getTotal(wDaysTotal:number, wEndsTotal:number) {
     let total: any = [];
+    let amount: number;
+    console.log (amount)
     this.hotels.forEach(hotel => {
       if (this.client === "Regular") {
         hotel.regularCustomers.forEach(rate => {
-          let amount: number = (rate.weekDay * wDaysTotal) + (rate.weekEnd * wEndsTotal);
-          total.push([hotel.name, amount])
+          console.log("days", rate.weekDay, wDaysTotal)
+          console.log("end", rate.weekEnd, wEndsTotal)
+
+          amount = (rate.weekDay * wDaysTotal) + (rate.weekEnd * wEndsTotal);
+          total.push([hotel.name, amount,hotel.rating, hotel.img])
         })
       } else {
         hotel.loyaltyProgramCustomers.forEach(rate => {
-          let amount: number = (rate.weekDay * wDaysTotal) + (rate.weekEnd * wEndsTotal);
-          total.push([hotel.name, amount])
+          amount = (rate.weekDay * wDaysTotal) + (rate.weekEnd * wEndsTotal);
+          total.push([hotel.name, amount,hotel.rating, hotel.img])
         })
       }
     })
-    console.log(total);
+    console.log("mi rray final",total);
     this.getResult(total);
   }
-  getResult(array) {
+
+  getResult(array) {  
     console.log("array111111111", array)
-    this.result = array.reduce(function(prev, curr) {
+    let result = array.reduce(function(prev, curr) {
       return prev[1] < curr[1] ? prev : curr;
   });
-  console.log("TheRESULT",this.result);
+  console.log("The RESULT",result);
+  this.card.name = result[0];
+  this.card.total = result[1];
+  this.card.rating = result[2];
+  this.card.img = result[3];
+
+this.final = [this.card]
   }
 
 
@@ -93,10 +110,10 @@ export class ResultComponent implements OnInit {
 
     this.HotelsService.getAnswerObservable.subscribe(answer => {
       this.clientAnswer = answer;
+      console.log("client answer",this.clientAnswer)
       this.from = this.clientAnswer.from;
       this.to = this.clientAnswer.to;
       this.client = this.clientAnswer.client;
-      console.log(this.clientAnswer)
       this.realDate()
     });
   }
