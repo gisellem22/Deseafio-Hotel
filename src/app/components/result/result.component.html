@@ -1,26 +1,28 @@
 <div class="container">
-  <div class="row justify-content-center" *ngIf="theLowestHotelRate">
-    <div class="card col-md-9 mb-3 p-2" style="max-width: 900px;" *ngFor="let hotel of theLowestHotelRate">
+  <div class="row justify-content-center mb-5" *ngIf="theLowestHotelRate">
+    <div class="card col-md-9 p-2" style="max-width: 900px;" *ngFor="let hotel of theLowestHotelRate">
       <div class="row no-gutters">
         <div class="col-md-5">
           <img [src]="hotel.img" class="card-img" style="max-height: 200px" alt="hotel.name">
         </div>
-        <div class="col-md ml-4">
+        <div class="col-md-7">
           <div class="card-body p-0 ml-3">
           <h4 class="card-title">{{hotel.name}}  <small class="text-muted ml-2">{{hotel.rating}} estrellas</small></h4>
         </div>
-          <div class="row mt-5">
-              <div class="col-md-6">
+          <div class="row mt-1">
+              <div class="col-6 col-sm-6 col-md-6">
               <div class="card-body p-0 ml-3">
-                  <p class="card-text">Llegada: {{dateFrom}}</p>
-                  <p class="card-text">Cliente: {{clientType}}</p>
+                  <p class="card-text">Llegada:</p>
+                  <p>{{dateFrom}}</p>
+                  <p class="card-text">Salida:</p>
+                  <p>{{dateTo}}</p>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="card-body p-0">
-                    <p class="card-text">Salida: {{dateTo}}</p>
-                    <h4 class="card-text">TOTAL:</h4>
-                    <h4 class="card-text" style="color:#428500">{{hotel.total}}</h4>
+              <div class="col-5 col-sm-5 col-md-5">
+                <div class="card-body p-0 ml-3">
+                    <p class="card-text">Cliente: {{clientType}}</p>
+                    <br>
+                    <h4 class="card-text">TOTAL: <span style="color:#428500">{{hotel.total}}</span></h4>
                 </div>
               </div>
           </div>
