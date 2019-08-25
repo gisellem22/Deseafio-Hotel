@@ -30,8 +30,8 @@ import { HOTEL } from 'src/app/models/HOTEL'
        ],
         loyaltyProgramCustomers:  
         [{
-           weekDay: 110,
-           weekEnd: 50  
+           weekDay: 100,
+           weekEnd: 40  
         }]
    },
    {
