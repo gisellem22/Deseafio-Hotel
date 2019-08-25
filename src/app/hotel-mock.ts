@@ -3,8 +3,9 @@ import { HOTEL } from 'src/app/models/HOTEL'
  export let hotels: HOTEL[]= [
     {
          id: 1,
-         name: 'Lakewood',
+         name: 'LAKEWOOD',
          rating: 3,
+         img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80",
          regularCustomers: 
          [{
             weekDay: 110,
@@ -19,9 +20,9 @@ import { HOTEL } from 'src/app/models/HOTEL'
     },
     {
         id: 2,
-        name: 'Bridgewood',
+        name: 'BRIDGEWOOD',
         rating: 4,
-        regularCustomers: 
+        img: "https://images.unsplash.com/photo-1559841644-08984562005a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80",        regularCustomers: 
         [{
            weekDay: 160,
            weekEnd: 60
@@ -29,14 +30,15 @@ import { HOTEL } from 'src/app/models/HOTEL'
        ],
         loyaltyProgramCustomers:  
         [{
-           weekDay: 110,
-           weekEnd: 50  
+           weekDay: 100,
+           weekEnd: 40  
         }]
    },
    {
     id: 3,
-    name: 'Ridgewood',
+    name: 'RIDGEWOOD',
     rating: 5,
+    img: "https://images.unsplash.com/photo-1559599238-308793637427?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
     regularCustomers: 
     [{
        weekDay: 220,
