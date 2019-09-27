@@ -21,6 +21,9 @@
                 (click)="getResult()">Buscar</button>
             </div>
         </div>
+        <div *ngIf ="warning" class="warning">
+            <p> {{warning}} </p>
+        </div>
     </form>
     <div class="content">
             <app-result></app-result>

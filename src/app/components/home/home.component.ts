@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   hotels: HOTEL[];
   answer: ANSWER;
+  warning: string;
 
   initialDate: string;
   finalDate: string;
@@ -32,10 +33,17 @@ export class HomeComponent implements OnInit {
     console.log(this.client);
   }
   getResult(){
+    if(this.initialDate !=="" && this.initialDate !==undefined &&
+    this.finalDate !=="" && this.finalDate !==undefined &&
+     this.client !=="" && this.client !==undefined) {
     this.answer = new ANSWER (this.initialDate,this.finalDate, this.client);
     console.log(this.answer)
     this.sendAnswer(this.answer)
+    this.warning = "";
     //this.router.navigate(['/result']);
+    } else {
+      this.warning = "Completa los datos de búsqueda";
+    }
   }
 
   constructor(public HotelsService: HotelsService /*, private router: Router*/) { }
