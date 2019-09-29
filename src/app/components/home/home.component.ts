@@ -22,22 +22,18 @@ export class HomeComponent implements OnInit {
 
   fromDate(event: any) {
     this.initialDate = event.target.value;
-    console.log(this.initialDate);
   }
   toDate(event: any) {
     this.finalDate = event.target.value;
-    console.log(this.finalDate);
   }
   onChange(event: any){
     this.client = event.target.value;
-    console.log(this.client);
   }
   getResult(){
     if(this.initialDate !=="" && this.initialDate !==undefined &&
     this.finalDate !=="" && this.finalDate !==undefined &&
      this.client !=="" && this.client !==undefined) {
     this.answer = new ANSWER (this.initialDate,this.finalDate, this.client);
-    console.log(this.answer)
     this.sendAnswer(this.answer)
     this.warning = "";
     //this.router.navigate(['/result']);
@@ -51,7 +47,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.HotelsService.getHotels().subscribe(hotel => {
       this.hotels = hotel;
-      console.log(this.hotels);
     });
   }
   sendAnswer(answer:ANSWER){

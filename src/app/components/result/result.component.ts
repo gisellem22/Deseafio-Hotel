@@ -37,7 +37,6 @@ export class ResultComponent implements OnInit {
       currentDate = this.addDate(currentDate);
     }
     this.isWDayOrWEnd()
-    console.log("stayDays", this.stayDays)
     // return this.stayDays;
   }
   addDate(currentDate: Date) {
@@ -60,7 +59,6 @@ export class ResultComponent implements OnInit {
   hotelsRate(wDaysTotal: number, wEndsTotal: number) {
     let hotelsRateList: any = [];
     let amount: number;
-    console.log(amount)
     this.hotels.forEach(hotel => {
       if (this.clientType === "Regular") {
         hotel.regularCustomers.forEach(rate => {
@@ -74,7 +72,6 @@ export class ResultComponent implements OnInit {
         })
       }
     })
-    console.log("hotel list", hotelsRateList);
     this.findLowerRate(hotelsRateList);
   }
 
@@ -88,19 +85,14 @@ export class ResultComponent implements OnInit {
         evenRate.push(hotel)
       }
     })
-    console.log(evenRate)
     let evenResult = evenRate.reduce(function (prev, curr) {
       return prev[1] > curr[1] ? prev : curr;
     });
-
-
-      console.log("The RESULT",evenResult);
       this.lowestRate.name = evenResult[0];
       this.lowestRate.total = evenResult[1];
       this.lowestRate.rating = evenResult[2];
       this.lowestRate.img = evenResult[3];
-
-    this.theLowestHotelRate = [this.lowestRate]
+      this.theLowestHotelRate = [this.lowestRate]
   }
 
 
@@ -109,11 +101,9 @@ export class ResultComponent implements OnInit {
   ngOnInit() {
     this.HotelsService.getHotels().subscribe(hotel => {
       this.hotels = hotel;
-      console.log(this.hotels);
     });
 
     this.HotelsService.getAnswerObservable.subscribe(answer => {
-      console.log("client answer", answer)
       this.dateFrom = answer.from;
       this.dateTo = answer.to;
       this.clientType = answer.client;

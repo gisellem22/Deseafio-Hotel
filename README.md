@@ -1,27 +1,23 @@
-# DesafioHotel
+# Reservas de hotel
+Una cadena hotelera que opera en Miami desea ofrecer servicios de reserva de habitaciones a través de Internet.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
+Existen tres tipos de hoteles:
 
-## Development server
+- Lakewood
+- Bridgewood
+- Ridgewood
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Cada hotel tiene tarifas separadas entre semana y fines de semana (sábados y domingos). También, hay tarifas especiales para clientes frecuentes como parte del programa de lealtad. Además, cada hotel tiene una calificación asignada.
 
-## Code scaffolding
+Las tarifas son así:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Lakewood** - con una calificación de 3 estrellas - tiene tarifas entre semana de 110  para clientes regulares y 80 para clientes frecuentes. Las tarifas de fin de semana son 90 para clientes habituales y 80 para clientes frecuentes
 
-## Build
+**Bridgewood** - con una calificación de 4 estrellas - tiene tasas entre semana de 160  ​​para clientes regulares y 110  para clientes frecuentes. Las tarifas de fin de semana son 60  para clientes habituales y 50  para clientes frecuentes.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**Ridgewood** - con una calificación de 5 estrellas - tiene tasas entre semana de 220  para clientes habituales y 100  para clientes frecuentes. Las tarifas de fin de semana son de 150  para clientes habituales y de 40  para clientes frecuentes.
 
-## Running unit tests
+Crea una interfaz web que ayude a un cliente en línea a encontrar el hotel más barato. El usuario debe dar como `input` un rango de fechas y definir si es un cliente regular o frecuente. La interfaz debe retornar el hotel más barato disponible. En caso de empate, se debe devolver el hotel con la calificación más alta. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
