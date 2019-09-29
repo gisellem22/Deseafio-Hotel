@@ -1,4 +1,20 @@
-# Reservas de hotel
+# Wood | Hotel Group
+
+Interfaz web que ayude a un cliente en línea a encontrar el hotel más barato. Implementada con Angular, Firebase RealTime Firestore y Bootstrap.
+
+Para ir a la aplicación:
+
+https://desafio-hotel.firebaseapp.com
+
+<a href="https://desafio-hotel.firebaseapp.com/home"><img src="https://gisellemachado.com/assets/img/projects/hotel.JPG"></a>
+
+
+
+***************
+
+###Desafío: Reservas de hotel
+
+
 Una cadena hotelera que opera en Miami desea ofrecer servicios de reserva de habitaciones a través de Internet.
 
 Existen tres tipos de hoteles:
