@@ -12,7 +12,7 @@ https://desafio-hotel.firebaseapp.com
 
 ***************
 
-###Desafío: Reservas de hotel
+### Desafío: Reservas de hotel
 
 
 Una cadena hotelera que opera en Miami desea ofrecer servicios de reserva de habitaciones a través de Internet.
